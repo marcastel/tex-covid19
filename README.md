@@ -24,6 +24,6 @@ Une [attestation en PDF][sample] sera automatiquement produite; le fichier sera 
   [image]:  https://user-images.githubusercontent.com/6306262/78451161-0df2d480-7684-11ea-81d6-1be431921076.png
   [mactex]: https://tug.org/mactex/mactex-download.html
   [pandoc]: https://pandoc.org/installing.html
-  [sample]: https://github.com/marcastel/tex-covid19/blob/master/shopping-20200404-1437.pdf
+  [sample]: https://github.com/marcastel/tex-covid19/files/4431362/shopping-20200404-1437.pdf
 
 <!-- vim: set digraph nospell :-->
