@@ -474,6 +474,10 @@ $if(work)$
 un déplacement professionnel ne pouvant être différé.
 $endif$
 
+$if(timeslot)$
+Le déplacement est prévu $timeslot$.
+$endif$
+
 $body$
 
 \vfill

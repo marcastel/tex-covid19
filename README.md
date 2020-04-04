@@ -20,6 +20,10 @@ Pour produire un attestation il suffit de taper
 
 Une [attestation en PDF][sample] sera automatiquement produite; le fichier sera automatiquement horodaté.
 
+Pour ajouter la durée du déplacement il suffit de rajouter le paramètre `TIMESLOT` avec la période de déplacement envisagée:
+
+    make <motif> TIMESLOT='de 10h à 14h'
+
 GitHub étant un repère de développeurs, je pars du principe que vous êtes autonome pour installer et utiliser cet utilitaire.
 En cas contraire, ouvrez une [issue][issues] et je me ferais un plaisir d'y répondre.
 

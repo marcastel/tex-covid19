@@ -8,7 +8,7 @@ USER_CITY       = à Paris
 
 MD_PROLOGUE    := ---\nfontsize: 12pt\n# female: 1
 MD_PROLOGUE    := $(MD_PROLOGUE)\nfullname: "$(USER_FULLNAME)"\naddress: "$(USER_ADDRESS)"\ncity: "$(USER_CITY)"
-MD_PROLOGUE    := $(MD_PROLOGUE)\nbirthdate: "$(USER_BIRTHDATE)"\nbirthplace: "$(USER_BIRTHPLACE)"\n
+MD_PROLOGUE    := $(MD_PROLOGUE)\nbirthdate: "$(USER_BIRTHDATE)"\nbirthplace: "$(USER_BIRTHPLACE)"\ntimeslot: "$(TIMESLOT)"\n
 MD_EPILOGUE     = \nlang: fr-FR\n---\n
 
 PANDOC          = pandoc
@@ -38,9 +38,9 @@ work:     work.pdf
 	$(PANDOC) $(PANDOC_FLAGS) --template=$$template -i $$basename.md -o $$basename-$(TIMESTAMP).pdf
 
 clean:
-	-@rm {family,fitness,health,shopping,work}.{md,pdf} 2>/dev/null; true
+	-@rm {family,fitness,health,shopping,work}.md 2>/dev/null; true
 
 realclean: clean
-	-@rm *-????????-????.pdf
+	-@rm {family,fitness,health,shopping,work}-*.pdf 2>/dev/null; true
 
 # vim: digraph nospell ts=4
