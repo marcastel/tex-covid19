@@ -3,8 +3,10 @@ depuis le confinement en raison du COVID-19.
 
 [![][image]][sample]
 
-Cet utilitaire a été développé sur Mac, mais devrait être portable aisément sur toute platforme sur laquel tourne [Pandoc] ou
+Cet utilitaire a été développé sur Mac, mais devrait être portable aisément sur toute platforme sur laquelle tourne [Pandoc] et
 [MacTeX]. Il s'adresse à ceux qui sont familiers avec la ligne de commande.
+
+# Utilisation
 
 Pour produire un attestation il suffit de taper
 
@@ -23,6 +25,23 @@ Une [attestation en PDF][sample] sera automatiquement produite; le fichier sera 
 Pour ajouter la durée du déplacement il suffit de rajouter le paramètre `TIMESLOT` avec la période de déplacement envisagée:
 
     make <motif> TIMESLOT='de 10h à 14h'
+
+Par défaut, l'horodatage est celui de la date à laquelle l'attestation est produite. Si vous préparer votre attestation en avance,
+vous pouvez préciser le paramètre `TIMESTAMP`:
+
+    make <motif> TIMESTAMP=20201231-1200
+
+# Personnalisation
+
+Pour personnaliser l'utilitaire, il faut éditer le fichier `Makefile` et modifier les variables suivantes:
+
+    USER_FULLNAME   = Emmanuel Macron
+    USER_BIRTHDATE  = 21 décembre 1977
+    USER_BIRTHPLACE = Amiens
+    USER_ADDRESS    = 55 Rue du Faubourg Saint-Honoré
+    USER_CITY       = à Paris
+
+# Installation
 
 GitHub étant un repère de développeurs, je pars du principe que vous êtes autonome pour installer et utiliser cet utilitaire.
 En cas contraire, ouvrez une [issue][issues] et je me ferais un plaisir d'y répondre.
