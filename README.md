@@ -1,15 +1,25 @@
 ![][banner]
 
+# Description
+
 A toutes fins utiles voilà mon utilitaire pour rapidement générer l'attestation de déplacement dérogatoire obligatoire en France
-depuis le confinement en raison du COVID-19.
+depuis le confinement en raison du COVID-19. Il s'adresse aux aficionados de la ligne de commande et permet de produire les
+nécessaires attestations en une commande. Si configuré, ces attestations seront automatiquement publiées sur le cloud[^1] de votre
+choix (via `ssh(1)`).
+
+Développé sur macOS, cet utilitaire requiert un environnement UNIX ou Linux disposant de la version POSIX de KornShell (`ksh`).
+Les composants tiers requis sont [GNU make(1)][make], [Pandoc] et une [distribution LaTeX][latex] -- sur macOS j'utilise [MacTex].
+
+_Note_: Sous Windows il serait peut être possible d'utiliser le [Windows subsystem for Linux][wsl], cependant `ksh` n'est pas
+encore disponible dans cet environnement; il faudrait par conséquent tuner `Makefile` en changeant la valeur de la variable
+`SHELL` et en vérifiant la compatibilité des commandes shell avec `bash(1)`.
+
+# Examples
 
 | Attestation           | Justificatif          |
 | :-------------------: | :-------------------: |
 | [![][image1]][image1] | [![][image2]][image2] |
 | [PDF][print1]         | [PDF][print2]         |
-
-Cet utilitaire a été développé sur Mac, mais devrait être portable aisément sur toute platforme sur laquelle tourne [Pandoc] et
-[MacTeX]. Il s'adresse à ceux qui sont familiers avec la ligne de commande.
 
 # Utilisation
 
@@ -51,13 +61,20 @@ Pour personnaliser l'utilitaire, il faut éditer le fichier `Makefile` et modifi
 GitHub étant un repère de développeurs, je pars du principe que vous êtes autonome pour installer et utiliser cet utilitaire.
 En cas contraire, ouvrez une [issue][issues] et je me ferais un plaisir d'y répondre.
 
+[^1]: façon moderne, et un peu pompeuse, de dire sur un serveur Internet.
+
+<!-- # Bookmarks -->
+
   [banner]: https://repository-images.githubusercontent.com/252994470/94268380-7b7a-11ea-97ac-6dd57d3227ea
   [image1]: https://user-images.githubusercontent.com/6306262/79021822-d9e44b80-7b7c-11ea-82c1-06d992e95176.jpg
   [image2]: https://user-images.githubusercontent.com/6306262/79021824-db157880-7b7c-11ea-81a2-874949f4c1df.jpg
+  [issues]: https://github.com/marcastel/tex-covid19/issues
+  [latex]:  https://www.latex-project.org/get
+  [mactex]: https://tug.org/mactex/mactex-download.html
+  [make]:   https://www.gnu.org/software/make
+  [pandoc]: https://pandoc.org/installing.html
   [print1]: https://github.com/marcastel/tex-covid19/files/4463370/work-20200410-22h.pdf
   [print2]: https://github.com/marcastel/tex-covid19/files/4463371/workauth-20200410-22h.pdf
-  [issues]: https://github.com/marcastel/tex-covid19/issues
-  [mactex]: https://tug.org/mactex/mactex-download.html
-  [pandoc]: https://pandoc.org/installing.html
+  [wsl]:    https://docs.microsoft.com/en-us/windows/wsl/install-win10
 
 <!-- vim: set digraph nospell :-->
