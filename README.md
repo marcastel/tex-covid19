@@ -5,7 +5,8 @@ depuis le confinement en raison du COVID-19.
 
 | Attestation           | Justificatif          |
 | :-------------------: | :-------------------: |
-| [![][image1]][print1] | [![][image2]][print2] |
+| [![][image1]][image1] | [![][image2]][image2] |
+! [PDF][print1]         | [PDF][print2]         |
 
 Cet utilitaire a été développé sur Mac, mais devrait être portable aisément sur toute platforme sur laquelle tourne [Pandoc] et
 [MacTeX]. Il s'adresse à ceux qui sont familiers avec la ligne de commande.
