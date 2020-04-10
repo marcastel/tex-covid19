@@ -1,0 +1,24 @@
+---
+#female:        true
+fullname:       "Emmanuel Macron"
+birthdate:      "21 décembre 1977"
+birthplace:     "Amiens"
+address:        "55 Rue du Faubourg Saint-Honoré"
+city:           "à Paris"
+
+work-orgname:   République Française
+work-authname:  la Nation souveraine
+work-authtitle: le Peuple
+work-purpose:   Combattre le COVID-19
+work-locations: tout le territoire Français
+work-transport: avion présidentiel
+work-validity:  "1 jour"
+
+letterhead:     assets/c19-background.pdf
+fontsize:       12pt
+tables:         true
+qrcode:         true
+lang:           fr-FR
+
+# vim: digraph nospell ts=4
+---
