@@ -1,3 +1,5 @@
+![][banner]
+
 A toutes fins utiles voilà mon utilitaire pour rapidement générer l'attestation de déplacement dérogatoire obligatoire en France
 depuis le confinement en raison du COVID-19.
 
@@ -46,6 +48,7 @@ Pour personnaliser l'utilitaire, il faut éditer le fichier `Makefile` et modifi
 GitHub étant un repère de développeurs, je pars du principe que vous êtes autonome pour installer et utiliser cet utilitaire.
 En cas contraire, ouvrez une [issue][issues] et je me ferais un plaisir d'y répondre.
 
+  [banner]: https://repository-images.githubusercontent.com/252994470/94268380-7b7a-11ea-97ac-6dd57d3227ea
   [image]:  https://user-images.githubusercontent.com/6306262/78451161-0df2d480-7684-11ea-81d6-1be431921076.png
   [issues]: https://github.com/marcastel/tex-covid19/issues
   [mactex]: https://tug.org/mactex/mactex-download.html
