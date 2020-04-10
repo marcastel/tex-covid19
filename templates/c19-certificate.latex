@@ -1,0 +1,64 @@
+% vim: digraph nospell
+
+${ include/class-default() }
+
+\begin{document}
+
+${ include/frontmatter() }
+${ include/include-before() }
+
+\vfill
+
+\section{Attestation de déplacement dérogatoire}
+
+\vfill
+
+En application de l'article 1er du décret du 16 mars 2020 portant réglementation des déplacements dans le cadre de la lutte contre
+la propagation du virus Covid-19, je soussigné$if(female)$e$endif$, $fullname$, né$if(female)$e$endif$ le $birthdate$ à
+$birthplace$, et demeurant sis $address$ $city$, certifie que mon déplacement est autorisé par l'article 1er du décret du 16 mars
+2020 portant réglementation des déplacements dans le cadre de la lutte contre la propagation du virus Covid-19.
+
+Mon déplacement a pour motif
+$if(shopping)$
+d'effectuer des achats de première nécessité dans des établissements autorisés.
+$endif$
+$if(health)$
+ma santé ou celle d'un de mes proches confiné avec moi.
+$endif$
+$if(family)$
+familial impérieux l'assistance aux personnes vulnérables ou la garde d'enfants.
+$endif$
+$if(fitness)$
+une activité physique individuelle à proximité du domicile.
+$endif$
+$if(work)$
+un déplacement professionnel ne pouvant être différé.
+$endif$
+
+$if(timeslot)$
+Le déplacement est prévu $timeslot$.
+$endif$
+
+$body$
+
+\vfill
+
+$if(qrcode)$
+\definecolor{isleblue}{rgb}{0.01, 0.31, 0.59}
+\begin{center}
+\textcolor{isleblue}{\qrcode{$website$}}
+\end{center}
+$endif$
+
+\vfill
+
+Fait $city$, le $if(date)$$date$$else$\today$endif$
+
+\vfill
+
+${ include/include-after() }
+${ include/backmatter() }
+
+\end{document}
+
+% vim: digraph nospell

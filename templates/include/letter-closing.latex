@@ -1,0 +1,21 @@
+%! @revision 2020-04-10 (Fri) 14:18:58
+
+$if(closing)$
+$if(closing-indentation)$
+\longindentation=$closing-indentation$
+$endif$
+\closing{$closing$}
+$endif$
+$if(encl)$
+\encl{$for(encl)$$encl$$sep$\\$endfor$}
+$endif$
+$if(cc)$
+\cc{$for(cc)$$cc$$sep$\\$endfor$}
+$endif$
+$if(ps)$
+\ps{$ps$}
+$endif$
+
+\end{letter}
+
+% vim: digraph nospell

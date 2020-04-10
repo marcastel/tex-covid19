@@ -1,0 +1,36 @@
+%! @revision 2020-04-10 (Fri) 16:17:36
+
+${ include/pass-options() }
+
+\documentclass[
+$if(fontsize)$
+  $fontsize$,
+$endif$
+$if(lang)$
+  $babel-lang$,
+$endif$
+$if(papersize)$
+  $papersize$paper,
+$else$
+  a4paper
+$endif$
+$if(beamer)$
+  ignorenonframetext,
+$if(handout)$
+  handout,
+$endif$
+$if(aspectratio)$
+  aspectratio=$aspectratio$,
+$endif$
+$endif$
+$for(classoption)$
+  $classoption$$sep$,
+$endfor$
+]{$if(documentclass)$$documentclass$$else$article$endif$}
+
+${ include/header-packages() }
+${ include/header-includes() }
+${ include/header-language() }
+${ include/header-metadata() }
+
+% vim: digraph nospell

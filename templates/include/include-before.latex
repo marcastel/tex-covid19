@@ -1,0 +1,16 @@
+%! @revision 2020-04-10 (Fri) 14:12:04
+
+$for(include-before)$
+$include-before$
+
+$endfor$
+
+$if(linestretch)$
+\setstretch{$linestretch$}
+$endif$
+$if(has-frontmatter)$
+\mainmatter
+$endif$
+
+
+% vim: digraph nospell

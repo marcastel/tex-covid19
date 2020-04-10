@@ -1,0 +1,39 @@
+% vim: digraph nospell
+${ include/class-letter() }
+
+\begin{document}
+
+${ include/frontmatter() }
+${ include/include-before() }
+
+\begin{letter}%{$for(address)$$address$$sep$\\$endfor$$if(subject)$\\ ~ \\$subject$$endif$}
+%\opening{$opening$}
+
+\vspace{2cm}
+\begin{center}
+    \huge{\textbf{Attestation}} \\ de déplacement dérogatoire
+\end{center}
+\vspace{3cm}
+
+
+Je soussigné(e), $fullname$, né le $birth_date$ à $birth_place$, et demeurant au $address$, en application de l'article 1er du
+décret du 16 mars 2020 portant réglementation des déplacements dans le cadre de la lutte contre la propagation du virus Covid-19,
+certifie que le motif de mon déplacement est légitime.
+
+$for(reason)$
+$if(reason.selected)$
+Il s'agit d'un déplacement $reason.desc$
+$endif$
+$endfor$
+
+\vspace{3cm}
+Fait à $location$ le $if(docdate)$
+$docdate$
+$else$
+\today
+$endif$ \\
+$fullname$
+
+${ include/letter-closing() }
+${ include/include-after() }
+\end{document}

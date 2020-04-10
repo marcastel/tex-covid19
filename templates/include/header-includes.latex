@@ -1,0 +1,7 @@
+%! @revision 2020-04-10 (Fri) 13:59:35
+
+$for(header-includes)$
+$header-includes$
+$endfor$
+
+% vim: digraph nospell

@@ -1,0 +1,17 @@
+% vim: digraph nospell
+
+${ include/class-default() }
+
+\begin{document}
+
+${ include/frontmatter() }
+${ include/include-before() }
+
+$body$
+
+${ include/include-after() }
+${ include/backmatter() }
+
+\end{document}
+
+% vim: digraph nospell

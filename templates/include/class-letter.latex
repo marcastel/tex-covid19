@@ -1,0 +1,51 @@
+%! @revision 2020-04-10 (Fri) 15:53:26
+
+${ _pass-options() }
+
+\documentclass[
+$if(fontsize)$
+$fontsize$,
+$endif$
+$if(lang)$
+$babel-lang$,
+$endif$
+$if(papersize)$
+$papersize$paper,
+$endif$
+$for(classoption)$
+$classoption$$sep$,
+$endfor$
+]{letter}
+
+${ header-packages() }
+${ header-includes() }
+${ header-language() }
+${ header-metadata() }
+
+\address{$for(return-address)$$return-address$$sep$\\$endfor$}
+
+% set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+
+$if(signature)$
+\usepackage{graphicx,grffile}
+\signature{$if(signature-before)$\vspace*{$signature-before$}$endif$\includegraphics$if(signature-width)$[width=$signature-width$]$endif${$signature$}$if(author)$\\$if(signature-after)$\vspace*{$signature-after$}$endif$$for(author)$$author$$sep$\\$endfor$$endif$}
+$else$
+$if(author)$
+\signature{$for(author)$$author$$sep$\\$endfor$}
+$endif$
+$endif$
+
+
+$if(blockquote)$
+\usepackage{mdframed} % color is loaded by mdframed
+\definecolor{greyborder}{RGB}{221,221,221}
+\definecolor{greytext}{RGB}{119,119,119}
+\newmdenv[rightline=false,bottomline=false,topline=false,linewidth=3pt,linecolor=greyborder,skipabove=\parskip]{blockquote}
+\renewenvironment{quote}{\begin{blockquote}\list{}{\rightmargin=0em\leftmargin=0em}%
+\item\relax\color{greytext}\ignorespaces}{\unskip\unskip\endlist\end{blockquote}}
+$endif$
+
+% vim: digraph nospell
