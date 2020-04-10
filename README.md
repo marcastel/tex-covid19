@@ -48,13 +48,52 @@ vous pouvez préciser le paramètre `TIMESTAMP`:
 
 # Personnalisation
 
-Pour personnaliser l'utilitaire, il faut éditer le fichier `Makefile` et modifier les variables suivantes:
+Pour personnaliser l'utilitaire, il faut créer deux fichiers `metadata.mk` et `metadata.yaml`. Les fichiers `metadata-default.mk`
+et `metadata-default.yaml` fournissent des valeurs par défault.
 
-    USER_FULLNAME   = Emmanuel Macron
-    USER_BIRTHDATE  = 21 décembre 1977
-    USER_BIRTHPLACE = Amiens
-    USER_ADDRESS    = 55 Rue du Faubourg Saint-Honoré
-    USER_CITY       = à Paris
+Le fichier YAML `metadata.yaml` renseigne les informations requises pour générer automatiquement le justificatif de déplacement.
+Lorsque le déplacement à un motif professionnel les champs `work-*` seront utilisés pour produire le justificatif professionnel.
+
+``` .yaml
+
+---
+#female:        true
+fullname:       "Emmanuel Macron"
+birthdate:      "21 décembre 1977"
+birthplace:     "Amiens"
+address:        "55 Rue du Faubourg Saint-Honoré"
+city:           "à Paris"
+
+work-orgname:   République Française
+work-authname:  la Nation souveraine
+work-authtitle: le Peuple
+work-purpose:   Combattre le COVID-19
+work-locations: tout le territoire Français
+work-transport: avion présidentiel
+work-validity:  "1 jour"
+
+letterhead:     assets/c19-background.pdf
+fontsize:       12pt
+tables:         true
+qrcode:         true
+lang:           fr-FR
+---
+```
+
+Le fichier `metadata.mk`, si renseigné, permet de _pousser_ automatiquement les documents produits sur le serveur de votre choix.
+Les transferts se font avec l'utilitaire `ssh(1)`. L'URL dans ce fichier sera utilisé pour produire l'URL renfermée dans le QR
+code.
+
+``` .mk
+
+URL_PATH   = https://example.com/path/to/files
+SSH_HOST   = mon-server.com
+SSH_PATH   = /var/www/html
+SSH_CHMOD  = apache:apache
+```
+
+
+
 
 # Installation
 
@@ -65,7 +104,7 @@ En cas contraire, ouvrez une [issue][issues] et je me ferais un plaisir d'y rép
 
 _ _ _ _
 
-<a name="fn1"></a><sup>1</sup> Façon moderne, et un peu pompeuse, de dire sur un serveur Internet.
+<a name="fn1"></a><sup>1</sup> Façon moderne, et un tant soit peu pompeuse, de dire sur un serveur Internet.
 
 <!-- # Bookmarks -->
 
