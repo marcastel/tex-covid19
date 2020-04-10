@@ -7,6 +7,11 @@ depuis le confinement en raison du COVID-19. Il s'adresse aux aficionados de la 
 nécessaires attestations en une commande. Si configuré, ces attestations seront automatiquement publiées sur le
 cloud<sup><a href="#fn1">1</a></sup> de votre choix (via `ssh(1)`).
 
+La motivation pour cet utilitaire, au début du confinement, était de produire la version papier des autorisations sans passer par
+un quelconque site Internet. La forme papier était initialement la seule autorisée. La version électronique fut par la suite
+autorisée, avec des outils online pour la générer. Mais comme toujours, je préfère éviter, autant que faire ce peu, de mettre mes
+données privées sur Internet, sauf sur des sites que je maîtrise.
+
 Développé sur macOS, cet utilitaire requiert un environnement UNIX ou Linux disposant de la version POSIX de KornShell (`ksh`).
 Les composants tiers requis sont [GNU make(1)][make], [Pandoc] et une [distribution LaTeX][latex] -- sur macOS j'utilise [MacTex].
 
