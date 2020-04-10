@@ -1,21 +1,17 @@
-SHELL = /bin/ksh
+SHELL           = /bin/ksh
+DATE            = $(shell date +%Y%m%d)
+TIME            = $(shell date +%Hh)
+TIMESTAMP       = $(DATE)-$(TIME)
 
-USER_FULLNAME   = Emmanuel Macron
-USER_BIRTHDATE  = 21 décembre 1977
-USER_BIRTHPLACE = Amiens
-USER_ADDRESS    = 55 Rue du Faubourg Saint-Honoré
-USER_CITY       = à Paris
+MD_PROLOGUE     = ---\n
+MD_EPILOGUE     = \n---\n
 
-MD_PROLOGUE    := ---\nfontsize: 12pt\n# female: 1
-MD_PROLOGUE    := $(MD_PROLOGUE)\nfullname: "$(USER_FULLNAME)"\naddress: "$(USER_ADDRESS)"\ncity: "$(USER_CITY)"
-MD_PROLOGUE    := $(MD_PROLOGUE)\nbirthdate: "$(USER_BIRTHDATE)"\nbirthplace: "$(USER_BIRTHPLACE)"\ntimeslot: "$(TIMESLOT)"\n
-MD_EPILOGUE     = \nlang: fr-FR\n---\n
+PANDOC          = pandoc --pdf-engine=xelatex *.yaml
+PANDOC_FORM1    = templates/c19-certificate
+PANDOC_FORM2    = templates/c19-authorisation
 
-PANDOC          = pandoc
-PANDOC_FLAGS    = --template=c19-form --pdf-engine=xelatex
-PANDOC_FORM1    = c19-certificate
-
-TIMESTAMP       = $(shell date +%Y%m%d-%H%M)
+-include metadata-default.mk
+-include metadata.mk
 
 all:
 	@print 'usage: make <target>\n\nwhere <target> is one of:'
@@ -32,15 +28,27 @@ shopping: shopping.pdf
 work:     work.pdf
 
 %.pdf:
-	@typeset basename=$(basename $@) template=$(PANDOC_FORM1); \
+	typeset basename=$(basename $@) files=$$basename-$(TIMESTAMP).pdf form=$(PANDOC_FORM1); \
 	print "Building COVID-19 form for $$basename ($$basename-$(TIMESTAMP).pdf)"; \
+	[[ $$basename == work ]] && files+=" workauth-$(TIMESTAMP).pdf"; \
 	[[ -f $$basename.md ]] || print -f $$'$(MD_PROLOGUE)%s: 1$(MD_EPILOGUE)' $$basename > $$basename.md; \
-	$(PANDOC) $(PANDOC_FLAGS) --template=$$template -i $$basename.md -o $$basename-$(TIMESTAMP).pdf
+	for file in $$files; do \
+	    $(PANDOC) --template=$$form -M website:$(URL_PATH)/$$file -i $$basename.md -o $$file; \
+	    form=$(PANDOC_FORM2); \
+	done; \
+	[[ -n "$(SSH_PATH)" ]] && scp $$basename*-$(TIMESTAMP).pdf $(SSH_HOST):$(SSH_PATH)/; \
+	[[ -n "$(SSH_PATH)" ]] && ssh $(SSH_HOST) sudo chown $(SSH_CHMOD) $(SSH_PATH)/$$basename*-$(TIMESTAMP).pdf
 
 clean:
 	-@rm {family,fitness,health,shopping,work}.md 2>/dev/null; true
 
-realclean: clean
-	-@rm {family,fitness,health,shopping,work}-*.pdf 2>/dev/null; true
+realclean: clean remote-clean
+	-@rm {family,fitness,health,shopping,work,workauth}-*.pdf 2>/dev/null; true
+
+remote-ls:
+	-@[[ -n "$(SSH_PATH)" ]] && ssh $(SSH_HOST) ls $(SSH_PATH)/*.pdf; true
+
+remote-clean:
+	-@[[ -n "$(SSH_PATH)" ]] && ssh $(SSH_HOST) rm $(SSH_PATH)/*.pdf; true
 
 # vim: digraph nospell ts=4
