@@ -3,7 +3,9 @@
 A toutes fins utiles voilà mon utilitaire pour rapidement générer l'attestation de déplacement dérogatoire obligatoire en France
 depuis le confinement en raison du COVID-19.
 
-[![][image]][sample]
+| Attestation           | Justificatif          |
+| :-------------------: | :-------------------: |
+| [![][image1]][print1] | [![][image2]][print2] |
 
 Cet utilitaire a été développé sur Mac, mais devrait être portable aisément sur toute platforme sur laquelle tourne [Pandoc] et
 [MacTeX]. Il s'adresse à ceux qui sont familiers avec la ligne de commande.
@@ -22,7 +24,7 @@ Pour produire un attestation il suffit de taper
 | shopping  | d'effectuer des achats de première nécessité dans des établissements autorisés |
 | work      | un déplacement professionnel ne pouvant être différé |
 
-Une [attestation en PDF][sample] sera automatiquement produite; le fichier sera automatiquement horodaté.
+Une [attestation en PDF][print1] sera automatiquement produite; le fichier sera automatiquement horodaté.
 
 Pour ajouter la durée du déplacement il suffit de rajouter le paramètre `TIMESLOT` avec la période de déplacement envisagée:
 
@@ -49,10 +51,12 @@ GitHub étant un repère de développeurs, je pars du principe que vous êtes au
 En cas contraire, ouvrez une [issue][issues] et je me ferais un plaisir d'y répondre.
 
   [banner]: https://repository-images.githubusercontent.com/252994470/94268380-7b7a-11ea-97ac-6dd57d3227ea
-  [image]:  https://user-images.githubusercontent.com/6306262/78451161-0df2d480-7684-11ea-81d6-1be431921076.png
+  [image1]: https://user-images.githubusercontent.com/6306262/79021822-d9e44b80-7b7c-11ea-82c1-06d992e95176.jpg
+  [image2]: https://user-images.githubusercontent.com/6306262/79021824-db157880-7b7c-11ea-81a2-874949f4c1df.jpg
+  [print1]: https://github.com/marcastel/tex-covid19/files/4463370/work-20200410-22h.pdf
+  [print2]: https://github.com/marcastel/tex-covid19/files/4463371/workauth-20200410-22h.pdf
   [issues]: https://github.com/marcastel/tex-covid19/issues
   [mactex]: https://tug.org/mactex/mactex-download.html
   [pandoc]: https://pandoc.org/installing.html
-  [sample]: https://github.com/marcastel/tex-covid19/files/4431362/shopping-20200404-1437.pdf
 
 <!-- vim: set digraph nospell :-->
