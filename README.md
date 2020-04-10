@@ -4,8 +4,8 @@
 
 A toutes fins utiles voilà mon utilitaire pour rapidement générer l'attestation de déplacement dérogatoire obligatoire en France
 depuis le confinement en raison du COVID-19. Il s'adresse aux aficionados de la ligne de commande et permet de produire les
-nécessaires attestations en une commande. Si configuré, ces attestations seront automatiquement publiées sur le cloud[^1] de votre
-choix (via `ssh(1)`).
+nécessaires attestations en une commande. Si configuré, ces attestations seront automatiquement publiées sur le
+cloud<sup><a href="#fn1">1</a></sup> de votre choix (via `ssh(1)`).
 
 Développé sur macOS, cet utilitaire requiert un environnement UNIX ou Linux disposant de la version POSIX de KornShell (`ksh`).
 Les composants tiers requis sont [GNU make(1)][make], [Pandoc] et une [distribution LaTeX][latex] -- sur macOS j'utilise [MacTex].
@@ -17,9 +17,9 @@ encore disponible dans cet environnement; il faudrait par conséquent tuner `Mak
 # Examples
 
 | Attestation           | Justificatif          |
-| :-------------------: | :-------------------: |
+| --------------------- | --------------------- |
 | [![][image1]][image1] | [![][image2]][image2] |
-| [PDF][print1]         | [PDF][print2]         |
+| [Version PDF][print1] | [Version PDF][print2] |
 
 # Utilisation
 
@@ -61,7 +61,11 @@ Pour personnaliser l'utilitaire, il faut éditer le fichier `Makefile` et modifi
 GitHub étant un repère de développeurs, je pars du principe que vous êtes autonome pour installer et utiliser cet utilitaire.
 En cas contraire, ouvrez une [issue][issues] et je me ferais un plaisir d'y répondre.
 
-[^1]: façon moderne, et un peu pompeuse, de dire sur un serveur Internet.
+<!-- # Footnotes -->
+
+_ _ _ _
+
+<a name="fn1"></a><sup>1</sup> Façon moderne, et un peu pompeuse, de dire sur un serveur Internet.
 
 <!-- # Bookmarks -->
 
