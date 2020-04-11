@@ -1,1 +1,14 @@
 metadata.*
+
+family-*.pdf
+fitness-*.pdf
+health-*.pdf
+shopping-*.pdf
+work-*.pdf
+workauth-*.pdf
+
+family.md
+fitness.md
+health.md
+shopping.md
+work.md
