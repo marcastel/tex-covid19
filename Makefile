@@ -28,7 +28,7 @@ shopping: shopping.pdf
 work:     work.pdf
 
 %.pdf: copy-private-data
-	typeset basename=$(basename $@) files=$$basename-$(TIMESTAMP).pdf form=$(PANDOC_FORM1); \
+	@typeset basename=$(basename $@) files=$$basename-$(TIMESTAMP).pdf form=$(PANDOC_FORM1); \
 	print "Building COVID-19 form for $$basename ($$basename-$(TIMESTAMP).pdf)"; \
 	[[ $$basename == work ]] && files+=" workauth-$(TIMESTAMP).pdf"; \
 	[[ -f $$basename.md ]] || print -f $$'$(MD_PROLOGUE)%s: 1$(MD_EPILOGUE)' $$basename > $$basename.md; \
@@ -43,7 +43,7 @@ clean:
 	-@rm {family,fitness,health,shopping,work}.md 2>/dev/null; true
 
 copy-private-data:
-	for ext in mk yaml; do \
+	@for ext in mk yaml; do \
 	    [[ -f metadata.$$ext ]] && continue; \
 	    [[ -f $(HOME)/Briefcase/_data/github/marcastel/tex-covid19/metadata.$$ext ]] || continue; \
 	    ln -s $(HOME)/Briefcase/_data/github/marcastel/tex-covid19/metadata.$$ext metadata.$$ext; \
